@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { api } from "../../api/client";
 import { Link } from "react-router-dom";
+import { usePageTitle } from "../../hooks/usePageTitle";
 
 export default function AdminItems() {
+  usePageTitle("Admin • Items");
   const [items, setItems] = useState([]);
   const [err, setErr] = useState("");
 

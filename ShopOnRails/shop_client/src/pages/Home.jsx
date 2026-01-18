@@ -5,8 +5,10 @@ import { getCachedUser } from "../auth/authStore";
 import ProductCard from "../components/ProductCard";
 import Loader from "../components/Loader";
 import { loadCart, addToCart, getCartCount } from "../cart/cartStore";
+import { usePageTitle } from "../hooks/usePageTitle";
 
 export default function Home() {
+  usePageTitle("Shop");
   const user = getCachedUser();
   const userId = user?.id;
   const location = useLocation();

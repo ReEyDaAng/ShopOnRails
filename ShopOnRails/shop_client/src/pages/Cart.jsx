@@ -9,8 +9,10 @@ import {
   updateQty,
   removeFromCart,
 } from "../cart/cartStore";
+import { usePageTitle } from "../hooks/usePageTitle";
 
 export default function Cart() {
+  usePageTitle("Cart");
   const nav = useNavigate();
   const user = getCachedUser();
   const userId = user?.id;

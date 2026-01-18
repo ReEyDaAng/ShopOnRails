@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { api } from "../../api/client";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import { usePageTitle } from "../../hooks/usePageTitle";
 
 export default function AdminItemEdit() {
   const { id } = useParams();
   const isNew = id === "new";
+  usePageTitle(isNew ? "Create Item" : `Edit Item #${id}`);
   const nav = useNavigate();
 
   const [form, setForm] = useState({

@@ -2,11 +2,13 @@ import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { login, register } from "../auth/authStore";
 import Loader from "../components/Loader";
+import { usePageTitle } from "../hooks/usePageTitle";
 
 export default function Auth() {
   const nav = useNavigate();
   const location = useLocation();
   const [isLogin, setIsLogin] = useState(location.pathname === "/login");
+  usePageTitle(isLogin ? "Login" : "Register");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {

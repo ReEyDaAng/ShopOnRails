@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { api } from "../api/client";
 import { useParams } from "react-router-dom";
+import { usePageTitle } from "../hooks/usePageTitle";
 
 export default function OrderDetails() {
   const { id } = useParams();
+  usePageTitle(`Order #${id}`);
   const [order, setOrder] = useState(null);
   const [err, setErr] = useState("");
 

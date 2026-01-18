@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { api } from "../api/client";
 import { setCachedUser } from "../auth/authStore";
+import { usePageTitle } from "../hooks/usePageTitle";
 
 export default function Profile() {
+  usePageTitle("My Profile");
   const [user, setUser] = useState(null);
   const [form, setForm] = useState({
     first_name: "",
