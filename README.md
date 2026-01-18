@@ -1,13 +1,13 @@
 # ShopOnRails
 
-> ⚙️ **Тестове завдання для Solwey Consulting**  
-> Проєкт реалізований у рамках тестового завдання на позицію web-розробника.  
-> Мета — продемонструвати базову архітектуру інтернет-магазину з **Rails API backend**, **React frontend**, роботою з **PostgreSQL**, ролями користувачів (admin / user), автентифікацією через **Devise** та повним циклом оформлення замовлень.  
+> ⚙️ **Test Task for Solwey Consulting**  
+> A project implemented as part of a test assignment for a web developer position.  
+> The goal is to demonstrate a basic e-commerce architecture with **Rails API backend**, **React frontend**, working with **PostgreSQL**, user roles (admin / user), authentication via **Devise**, and a complete order management cycle.  
 >  
-> Основний фокус зроблено на **функціональність, чистоту коду та коректну взаємодію між frontend і backend**, без акценту на дизайн або UI-деталі.  
+> The main focus is on **functionality, code quality, and proper interaction between frontend and backend**, without emphasis on design or UI details.  
 >  
-> Backend реалізований як API-only застосунок, frontend розгорнутий окремо.  
-> Проєкт задеплоєний на **безкоштовних хостингах (Vercel + Render)** для демонстрації роботи.
+> The backend is implemented as an API-only application, with the frontend deployed separately.  
+> The project is deployed on **free hosting services (Vercel + Render)** for demonstration purposes.
 
 ## 🌍 Live Demo
 
@@ -18,11 +18,11 @@
   👉 https://shoponrails.onrender.com  
   👉 https://shoponrails.onrender.com/api/v1/items
 
-> ⚠️ Backend працює як API — відкриття `/` повертає 404 (очікувана поведінка)
+> ⚠️ Backend works as an API — opening `/` returns 404 (expected behavior)
 
 ---
 
-## 📋 Структура проекту
+## 📋 Project Structure
 
 ```
 ShopOnRails/
@@ -30,7 +30,7 @@ ShopOnRails/
 └── shop_client/       # React + Vite frontend
 ```
 
-### 📂 Детальна структура
+### 📂 Detailed Structure
 
 #### Backend (shop_api)
 
@@ -46,10 +46,10 @@ shop_api/
 │   │   └── users/
 │   ├── models/
 │   │   ├── application_record.rb
-│   │   ├── item.rb            # Модель товару
-│   │   ├── order.rb           # Модель замовлення
-│   │   ├── orders_description.rb  # Деталі замовлення
-│   │   ├── user.rb            # Модель користувача (Devise)
+│   │   ├── item.rb            # Item model
+│   │   ├── order.rb           # Order model
+│   │   ├── orders_description.rb  # Order details
+│   │   ├── user.rb            # User model (Devise)
 │   │   └── concerns/
 │   ├── jobs/
 │   │   └── application_job.rb
@@ -65,22 +65,22 @@ shop_api/
 │   ├── database.yml
 │   ├── environment.rb
 │   ├── puma.rb
-│   ├── routes.rb              # API маршрути
+│   ├── routes.rb              # API routes
 │   ├── storage.yml
 │   ├── environments/
 │   │   ├── development.rb
 │   │   ├── production.rb
 │   │   └── test.rb
 │   ├── initializers/
-│   │   ├── cors.rb            # CORS налаштування
-│   │   ├── devise.rb          # Devise конфіг
+│   │   ├── cors.rb            # CORS configuration
+│   │   ├── devise.rb          # Devise config
 │   │   ├── filter_parameter_logging.rb
 │   │   └── inflections.rb
 │   └── locales/
 │       ├── devise.en.yml
 │       └── en.yml
 ├── db/
-│   ├── migrate/               # Database миграції
+│   ├── migrate/               # Database migrations
 │   │   ├── 20260112073448_devise_create_users.rb
 │   │   ├── 20260112081302_create_items.rb
 │   │   ├── 20260112081303_create_orders.rb
@@ -93,9 +93,9 @@ shop_api/
 │   └── tasks/
 ├── test/
 ├── Dockerfile
-├── Gemfile                    # Ruby залежності
+├── Gemfile                    # Ruby dependencies
 ├── Rakefile
-├── config.ru                  # Rack конфіг
+├── config.ru                  # Rack configuration
 └── README.md
 ```
 
@@ -105,41 +105,41 @@ shop_api/
 shop_client/
 ├── src/
 │   ├── api/
-│   │   └── client.js          # HTTP клієнт
+│   │   └── client.js          # HTTP client
 │   ├── auth/
 │   │   └── authStore.js       # Zustand auth store
 │   ├── cart/
 │   │   └── cartStore.js       # Zustand cart store
 │   ├── hooks/
-│   │   └── usePageTitle.js    # Hook для динамічного title
+│   │   └── usePageTitle.js    # Hook for dynamic title
 │   ├── components/
-│   │   ├── AdminRoute.jsx     # Route guard для адмін
-│   │   ├── AvatarBadge.jsx    # Avatar компонент
+│   │   ├── AdminRoute.jsx     # Route guard for admins
+│   │   ├── AvatarBadge.jsx    # Avatar component
 │   │   ├── Loader.jsx         # Loading spinner
-│   │   ├── NavBar.jsx         # Навігаційна панель
-│   │   ├── ProductCard.jsx    # Карточка товару
-│   │   ├── ProtectedRoute.jsx # Route guard для користувачів
-│   │   └── ScrollToTop.jsx    # Auto-scroll на навігацію
+│   │   ├── NavBar.jsx         # Navigation bar
+│   │   ├── ProductCard.jsx    # Product card
+│   │   ├── ProtectedRoute.jsx # Route guard for users
+│   │   └── ScrollToTop.jsx    # Auto-scroll on navigation
 │   ├── pages/
-│   │   ├── Home.jsx           # Главная (магазин)
+│   │   ├── Home.jsx           # Главная (shop)
 │   │   ├── Auth.jsx           # Login/Register
-│   │   ├── Cart.jsx           # Кошик
+│   │   ├── Cart.jsx           # Shopping cart
 │   │   ├── Items.jsx
-│   │   ├── Login.jsx          # Login сторінка
-│   │   ├── Orders.jsx         # Мої замовлення
-│   │   ├── OrderDetails.jsx   # Деталі замовлення
-│   │   ├── Profile.jsx        # Профіль користувача
-│   │   ├── Register.jsx       # Реєстрація
+│   │   ├── Login.jsx          # Login page
+│   │   ├── Orders.jsx         # My orders
+│   │   ├── OrderDetails.jsx   # Order details
+│   │   ├── Profile.jsx        # User profile
+│   │   ├── Register.jsx       # Registration
 │   │   └── admin/
-│   │       ├── AdminItems.jsx      # Управління товарами
-│   │       ├── AdminItemEdit.jsx   # Редагування товару
-│   │       ├── AdminUsers.jsx      # Управління користувачами
-│   │       └── AdminUserEdit.jsx   # Редагування користувача
-│   ├── App.jsx                # Main компонент
+│   │       ├── AdminItems.jsx      # Manage items
+│   │       ├── AdminItemEdit.jsx   # Edit item
+│   │       ├── AdminUsers.jsx      # Manage users
+│   │       └── AdminUserEdit.jsx   # Edit user
+│   ├── App.jsx                # Main component
 │   ├── main.jsx               # Entry point
-│   └── styles.css             # Global стилі
+│   └── styles.css             # Global styles
 ├── public/
-│   └── favicon.svg            # Site іконка
+│   └── favicon.svg            # Site icon
 ├── index.html
 ├── package.json
 ├── vite.config.js
@@ -147,7 +147,7 @@ shop_client/
 └── README.md
 ```
 
-## 🚀 Технологічний стек
+## 🚀 Technology Stack
 
 ### Backend (shop_api)
 - **Rails 7** - Web framework
@@ -164,47 +164,47 @@ shop_client/
 - **Zustand** - State management
 - **Fetch API** - HTTP client
 
-## 📦 Функціональність
+## 📦 Functionality
 
-### Для користувачів
-- ✅ Реєстрація та вхід (JWT)
-- ✅ Перегляд товарів з пошуком
-- ✅ Кошик (зберігається локально)
-- ✅ Оформлення замовлень
-- ✅ Історія замовлень
-- ✅ Профіль користувача
+### For Users
+- ✅ Registration and login (JWT)
+- ✅ Browse products with search
+- ✅ Shopping cart (stored locally)
+- ✅ Order checkout
+- ✅ Order history
+- ✅ User profile
 
-### Для адміністраторів
-- ✅ Управління товарами (CRUD)
-- ✅ Управління користувачами (CRUD)
-- ✅ Перегляд всіх замовлень
+### For Administrators
+- ✅ Manage products (CRUD)
+- ✅ Manage users (CRUD)
+- ✅ View all orders
 
-## 🛠️ Встановлення
+## 🛠️ Installation
 
-### Передумови
+### Prerequisites
 - Node.js 18+
 - Ruby 3.0+
 - PostgreSQL 12+
-- Docker (опційно)
+- Docker (optional)
 
 ### Backend
 
 ```bash
 cd shop_api
 
-# Встановлення залежностей
+# Install dependencies
 bundle install
 
-# Налаштування бази даних
+# Setup database
 rails db:create
 rails db:migrate
 rails db:seed
 
-# Запуск сервера (development)
+# Run server (development)
 rails s -b 0.0.0.0 -p 3000
 ```
 
-**Тестування:**
+**Testing:**
 ```bash
 rails test
 ```
@@ -220,94 +220,95 @@ docker run -p 3000:3000 shop-api
 ```bash
 cd shop_client
 
-# Встановлення залежностей
+# Install dependencies
 npm install
 
-# Development сервер
+# Development server
 npm run dev
 
-# Build для production
+# Build for production
 npm run build
 ```
-> 💡 **Примітка щодо середовища**  
-> Розробка та запуск виконувались у Linux-середовищі.  
-> При роботі під Windows рекомендується використовувати **WSL (Ubuntu)** для стабільної роботи Rails та PostgreSQL.
+> 💡 **Note on Environment**  
+> Development and execution were performed in a Linux environment.  
+> When working on Windows, it's recommended to use **WSL (Ubuntu)** for stable Rails and PostgreSQL operation.
 
 ## 🔗 API Endpoints
 
-### Аутентифікація
-- `POST /api/v1/users` - Реєстрація
-- `POST /api/v1/sign_in` - Вхід
-- `POST /api/v1/sign_out` - Вихід
-- `GET /api/v1/profile` - Поточний користувач
+### Authentication
+- `POST /api/v1/users` - Register
+- `POST /api/v1/sign_in` - Login
+- `POST /api/v1/sign_out` - Logout
+- `GET /api/v1/profile` - Current user
 
-### Товари
-- `GET /api/v1/items` - Всі товари (з пошуком)
-- `GET /api/v1/items/:id` - Товар за ID
-- `POST /api/v1/admin/items` - Створити (admin)
-- `PATCH /api/v1/admin/items/:id` - Оновити (admin)
-- `DELETE /api/v1/admin/items/:id` - Видалити (admin)
+### Products
+- `GET /api/v1/items` - All items (with search)
+- `GET /api/v1/items/:id` - Item by ID
+- `POST /api/v1/admin/items` - Create (admin)
+- `PATCH /api/v1/admin/items/:id` - Update (admin)
+- `DELETE /api/v1/admin/items/:id` - Delete (admin)
 
-### Замовлення
-- `GET /api/v1/orders` - Замовлення користувача
-- `GET /api/v1/orders/:id` - Замовлення за ID
-- `POST /api/v1/orders` - Створити замовлення
+### Orders
+- `GET /api/v1/orders` - User orders
+- `GET /api/v1/orders/:id` - Order by ID
+- `POST /api/v1/orders` - Create order
 
-### Користувачі (Admin)
-- `GET /api/v1/admin/users` - Всі користувачі
-- `GET /api/v1/admin/users/:id` - Користувач за ID
-- `POST /api/v1/admin/users` - Створити
-- `PATCH /api/v1/admin/users/:id` - Оновити
-- `DELETE /api/v1/admin/users/:id` - Видалити
+### Users (Admin)
+- `GET /api/v1/admin/users` - All users
+- `GET /api/v1/admin/users/:id` - User by ID
+- `POST /api/v1/admin/users` - Create
+- `PATCH /api/v1/admin/users/:id` - Update
+- `DELETE /api/v1/admin/users/:id` - Delete
 
-## 🔐 Аутентифікація
+## 🔐 Authentication
 
-API використовує JWT токени для аутентифікації:
+The API uses JWT tokens for authentication:
+
 
 ```
 Authorization: Bearer <token>
 ```
 
-Токен отримується при вході та зберігається в LocalStorage.
+The token is issued on login and stored in LocalStorage.
 
-## 📱 Сторінки
+## 📱 Pages
 
-### Публічні
-- `/` - Головна (магазин товарів)
-- `/login` - Вхід
-- `/register` - Реєстрація
-- `/cart` - Кошик
+### Public
+- `/` — Home (product catalog)
+- `/login` — Login
+- `/register` — Registration
+- `/cart` — Shopping cart
 
-### Приватні (користувачі)
-- `/profile` - Профіль
-- `/orders` - Мої замовлення
-- `/orders/:id` - Деталі замовлення
+### Private (Users)
+- `/profile` — User profile
+- `/orders` — My orders
+- `/orders/:id` — Order details
 
-### Приватні (адміни)
-- `/admin/items` - Управління товарами
-- `/admin/items/new` - Додати товар
-- `/admin/items/:id` - Редагування товару
-- `/admin/users` - Управління користувачами
-- `/admin/users/new` - Додати користувача
-- `/admin/users/:id` - Редагування користувача
+### Private (Admins)
+- `/admin/items` — Product management
+- `/admin/items/new` — Create product
+- `/admin/items/:id` — Edit product
+- `/admin/users` — User management
+- `/admin/users/new` — Create user
+- `/admin/users/:id` — Edit user
 
 ## 🎨 Features
 
 - 🌙 Dark theme UI
 - 📱 Responsive design
-- 🔍 Live search з дебаунсом
-- 🛒 Локальний кошик (IndexedDB)
-- 🔐 JWT автентифікація
-- ⚡ Динамічні page titles
-- 🎯 Брейдкрамби та навігація
+- 🔍 Live search with debounce
+- 🛒 Local cart (IndexedDB)
+- 🔐 JWT authentication
+- ⚡ Dynamic page titles
+- 🎯 Breadcrumbs and navigation
 
-## 📝 Ліцензія
+## 📝 License
 
 MIT
 
-## 👨‍💻 Розробка
+## 👨‍💻 Development
 
-### Запуск обох сервісів
+### Running Both Services
 
 Terminal 1 (Backend):
 ```bash
@@ -319,10 +320,10 @@ Terminal 2 (Frontend):
 cd shop_client && npm run dev
 ```
 
-Frontend буде доступний на `http://localhost:5173`
-Backend - на `http://localhost:3000`
+Frontend will be available at `http://localhost:5173`
+Backend at `http://localhost:3000`
 
-## 🐛 Тестування
+## 🐛 Testing
 
 Backend:
 ```bash
@@ -330,12 +331,12 @@ cd shop_api
 rails test
 ```
 
-Frontend: (розробка)
+Frontend: (in development)
 ```bash
 cd shop_client
 npm test
 ```
 
-## 📧 Контакти
+## 📧 Contact
 
-Питання та пропозиції - welcome!
+Questions and suggestions are welcome!
