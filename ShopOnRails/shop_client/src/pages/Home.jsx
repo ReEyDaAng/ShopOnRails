@@ -79,7 +79,7 @@ export default function Home() {
         </button>
         <Link className="btn btnSuccess" to="/cart">
           <span className="btnIcon" aria-hidden="true">🛒</span>
-          <span className="btnText">🛒 Go to cart</span>
+          <span className="btnText"> Go to cart</span>
         </Link>
       </div>
 
