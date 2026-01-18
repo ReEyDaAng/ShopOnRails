@@ -1,0 +1,19 @@
+# ===== ENV =====
+.env
+.env.*
+
+# ===== OS / IDE =====
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ===== Node =====
+**/node_modules/
+**/dist/
+
+# ===== Rails =====
+**/log/
+**/tmp/
+**/storage/
+**/vendor/bundle
