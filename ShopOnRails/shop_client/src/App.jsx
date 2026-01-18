@@ -21,7 +21,6 @@ import AdminItemEdit from "./pages/admin/AdminItemEdit";
 import { refreshMe, isAuthed } from "./auth/authStore";
 
 export default function App() {
-  // Якщо сторінку перезавантажили — підтягнути профіль (щоб показати ім'я/роль у Navbar)
   useEffect(() => {
     if (isAuthed()) {
       refreshMe().catch(() => {});
