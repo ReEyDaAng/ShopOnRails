@@ -74,9 +74,13 @@ export default function Home() {
           onKeyDown={(e) => e.key === "Enter" && load(query)}
         />
         <button className="btn btnPrimary" onClick={() => load(query)}>
-          Search
+          <span className="btnIcon" aria-hidden="true">🔍</span>
+          <span className="btnText">Search</span>
         </button>
-        <Link className="btn btnSuccess" to="/cart">🛒 Go to cart</Link>
+        <Link className="btn btnSuccess" to="/cart">
+          <span className="btnIcon" aria-hidden="true">🛒</span>
+          <span className="btnText">🛒 Go to cart</span>
+        </Link>
       </div>
 
       {err && <div className="error">{err}</div>}

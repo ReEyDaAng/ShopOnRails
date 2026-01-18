@@ -331,6 +331,9 @@ input{
   margin-top: auto;
 }
 
+.btnText { display: inline; }
+.btnIcon { display: inline-flex; }
+
 /* Orders: prevent text overlapping the button */
 .orderCard{
   display: flex;
@@ -664,6 +667,9 @@ label{ display:block; margin-bottom: 10px; }
     border-radius: 12px;
     flex: 0 0 auto;
   }
+
+  .btnText { display: none; }
+  .btn { padding: 10px 12px; }
 }
 
 /* ===== Loader ===== */
